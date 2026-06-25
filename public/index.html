@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A playful awareness prototype for Apron Creative showing how community farms grow biodiversity, climate resilience, and wellbeing."
+    />
+    <title>The Farm That Gives Back</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css?v=field-lab-2" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="stage" aria-labelledby="title">
+        <div class="copy">
+          <p class="kicker">Apron Creative field lab</p>
+          <h1 id="title">The Farm That Gives Back</h1>
+          <p class="lede">
+            Restore a patch of land into a community farm where wildlife returns, weather softens,
+            and people feel the benefits in their bodies and routines.
+          </p>
+          <div class="actions" id="actions" aria-label="Farm actions"></div>
+        </div>
+
+        <div class="farm-wrap" aria-label="Interactive community farm">
+          <div class="game-head">
+            <div>
+              <p class="scene-label">Field map</p>
+              <strong id="game-state" aria-live="polite">0 of 7 layers restored</strong>
+            </div>
+            <span id="turn-pill">Start anywhere</span>
+          </div>
+
+          <div class="farm-card" id="farm">
+            <svg class="farm-scene" viewBox="0 0 760 560" role="img" aria-labelledby="farm-title farm-desc">
+              <title id="farm-title">Animated community farm restoration scene</title>
+              <desc id="farm-desc">
+                A bare field becomes a regenerative community farm as the player chooses actions.
+              </desc>
+              <defs>
+                <linearGradient id="skyGradient" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#8fc9df" />
+                  <stop offset="70%" stop-color="#d7e8d7" />
+                  <stop offset="100%" stop-color="#e9e0bd" />
+                </linearGradient>
+                <linearGradient id="fieldGradient" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#91b95a" />
+                  <stop offset="100%" stop-color="#4f793b" />
+                </linearGradient>
+                <linearGradient id="soilGradient" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0%" stop-color="#875632" />
+                  <stop offset="50%" stop-color="#b27542" />
+                  <stop offset="100%" stop-color="#74482a" />
+                </linearGradient>
+                <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#1a2419" flood-opacity="0.24" />
+                </filter>
+              </defs>
+
+              <rect width="760" height="560" fill="url(#skyGradient)" />
+              <circle class="svg-sun" cx="648" cy="82" r="38" fill="#e9b84f" />
+              <g class="svg-cloud cloud-a" fill="#ffffff" opacity="0.72">
+                <ellipse cx="110" cy="78" rx="54" ry="18" />
+                <circle cx="78" cy="70" r="22" />
+                <circle cx="124" cy="62" r="30" />
+                <circle cx="164" cy="74" r="20" />
+              </g>
+              <g class="svg-cloud cloud-b" fill="#ffffff" opacity="0.62">
+                <ellipse cx="410" cy="112" rx="48" ry="16" />
+                <circle cx="382" cy="104" r="20" />
+                <circle cx="426" cy="98" r="27" />
+                <circle cx="462" cy="108" r="18" />
+              </g>
+
+              <path d="M0 232 C120 158 235 186 340 222 C470 156 612 174 760 226 L760 560 L0 560 Z" fill="#789b50" />
+              <path d="M0 274 C155 238 290 260 390 286 C520 238 628 250 760 278 L760 560 L0 560 Z" fill="url(#fieldGradient)" />
+              <path class="rain-wash" d="M80 250 C210 305 510 270 690 322" fill="none" stroke="#cbe5eb" stroke-width="6" stroke-linecap="round" opacity="0" />
+              <path d="M324 560 C346 452 366 373 390 307 C416 374 438 454 462 560 Z" fill="#dbc88b" opacity="0.84" />
+              <path d="M154 532 L272 320 C314 302 445 302 488 320 L616 532 Z" fill="url(#soilGradient)" filter="url(#softShadow)" />
+              <g class="soil-lines" stroke="#c7925b" stroke-width="14" opacity="0.5">
+                <path d="M210 522 L300 322" />
+                <path d="M286 526 L342 312" />
+                <path d="M372 532 L384 310" />
+                <path d="M454 526 L424 312" />
+                <path d="M540 524 L466 322" />
+              </g>
+
+              <g class="svg-layer hedgerow">
+                <path d="M24 244 C92 210 142 226 194 212 C270 194 332 222 404 204 C500 184 574 212 736 204 L736 254 L24 254 Z" fill="#245936" />
+                <g fill="#397e45">
+                  <circle cx="80" cy="220" r="32" /><circle cx="146" cy="210" r="38" /><circle cx="226" cy="218" r="35" />
+                  <circle cx="320" cy="206" r="41" /><circle cx="422" cy="214" r="36" /><circle cx="520" cy="204" r="42" />
+                  <circle cx="624" cy="214" r="36" /><circle cx="700" cy="206" r="34" />
+                </g>
+              </g>
+
+              <g class="svg-layer wildflowers">
+                <g stroke="#2b7043" stroke-width="4" stroke-linecap="round">
+                  <path d="M154 452 L154 384" /><path d="M190 456 L190 396" /><path d="M226 446 L226 372" />
+                  <path d="M262 460 L262 400" /><path d="M300 450 L300 378" /><path d="M118 466 L118 410" />
+                </g>
+                <g class="flower-heads">
+                  <circle cx="154" cy="380" r="10" fill="#f4d65d" /><circle cx="190" cy="392" r="9" fill="#c84f7d" />
+                  <circle cx="226" cy="368" r="10" fill="#fff0a5" /><circle cx="262" cy="396" r="9" fill="#e16073" />
+                  <circle cx="300" cy="374" r="10" fill="#f4d65d" /><circle cx="118" cy="406" r="8" fill="#fff0a5" />
+                </g>
+              </g>
+
+              <g class="svg-layer pond">
+                <ellipse cx="584" cy="418" rx="88" ry="44" fill="#5aa7bd" />
+                <ellipse cx="584" cy="418" rx="104" ry="55" fill="none" stroke="#6f8848" stroke-width="16" />
+                <path class="pond-ripple" d="M526 414 C556 396 610 396 642 414" fill="none" stroke="#d6f2f2" stroke-width="5" stroke-linecap="round" opacity="0.7" />
+                <path d="M620 448 C640 430 658 430 674 448" fill="none" stroke="#365b37" stroke-width="5" stroke-linecap="round" />
+              </g>
+
+              <g class="svg-layer compost">
+                <rect x="92" y="434" width="88" height="72" rx="6" fill="#7c4e30" stroke="#56331f" stroke-width="7" />
+                <path d="M102 456 H172 M102 480 H172 M122 438 V506 M150 438 V506" stroke="#a87950" stroke-width="5" />
+                <path class="compost-steam" d="M118 424 C104 406 134 398 120 380 M148 424 C134 404 164 398 150 378" fill="none" stroke="#f2e8cf" stroke-width="5" stroke-linecap="round" opacity="0.78" />
+              </g>
+
+              <g class="svg-layer growing-beds">
+                <path d="M314 500 L350 382 L454 382 L494 500 Z" fill="#6f4b2f" />
+                <g stroke="#9fce63" stroke-width="9" stroke-linecap="round">
+                  <path d="M338 484 C354 450 366 422 372 392" />
+                  <path d="M386 492 C394 454 398 420 400 390" />
+                  <path d="M440 486 C426 448 420 420 418 392" />
+                </g>
+                <g fill="#3e8a4d">
+                  <ellipse cx="354" cy="434" rx="18" ry="9" transform="rotate(-28 354 434)" />
+                  <ellipse cx="396" cy="426" rx="18" ry="9" transform="rotate(18 396 426)" />
+                  <ellipse cx="430" cy="448" rx="18" ry="9" transform="rotate(30 430 448)" />
+                </g>
+              </g>
+
+              <g class="svg-layer volunteer-hub">
+                <path d="M482 344 L558 284 L636 344 Z" fill="#b54458" />
+                <rect x="500" y="344" width="118" height="106" rx="6" fill="#f5d58f" stroke="#8b5636" stroke-width="7" />
+                <rect x="546" y="390" width="30" height="60" fill="#5a3827" />
+                <circle cx="528" cy="374" r="10" fill="#6aa6b6" />
+                <circle cx="590" cy="374" r="10" fill="#6aa6b6" />
+              </g>
+
+              <g class="svg-layer rain-garden">
+                <path d="M562 510 C610 464 682 470 712 514 C674 542 606 548 562 510 Z" fill="#477e50" />
+                <g fill="#a9c94b">
+                  <ellipse cx="612" cy="500" rx="27" ry="13" transform="rotate(-28 612 500)" />
+                  <ellipse cx="658" cy="506" rx="31" ry="14" transform="rotate(18 658 506)" />
+                  <ellipse cx="684" cy="492" rx="24" ry="12" transform="rotate(-18 684 492)" />
+                </g>
+              </g>
+
+              <g class="people">
+                <circle cx="334" cy="354" r="12" fill="#6d3f2a" /><rect x="322" y="368" width="24" height="48" rx="10" fill="#d98d4a" />
+                <circle cx="384" cy="334" r="12" fill="#8a5939" /><rect x="372" y="348" width="24" height="58" rx="10" fill="#2f7d68" />
+                <circle cx="432" cy="354" r="12" fill="#51301f" /><rect x="420" y="368" width="24" height="48" rx="10" fill="#526fa3" />
+              </g>
+
+              <g class="pollinators" fill="#f3cf47">
+                <circle cx="114" cy="318" r="5" /><circle cx="260" cy="294" r="4" /><circle cx="512" cy="268" r="4" />
+              </g>
+              <g class="sparkles" stroke="#fff7ba" stroke-width="4" stroke-linecap="round">
+                <path d="M206 278 V302 M194 290 H218" />
+                <path d="M586 238 V262 M574 250 H598" />
+                <path d="M394 264 V286 M383 275 H405" />
+              </g>
+            </svg>
+            <div class="return-tokens" id="return-tokens" aria-label="Collect human wellbeing returns"></div>
+            <div class="caption" id="caption" aria-live="polite">Pick an action on the left</div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="impact-panel" aria-label="Impact scorecard">
+        <div class="panel-intro">
+          <p class="result-eyebrow">Field ledger</p>
+          <h2>Returns you can feel</h2>
+        </div>
+        <div class="restoration-progress" aria-label="Restoration progress">
+          <span id="restored-count" aria-live="polite">0/7 restored</span>
+          <div class="progress-track"><span id="progress-bar"></span></div>
+        </div>
+        <div class="return-log" aria-label="Human returns collected">
+          <span id="returns-count">0 human returns collected</span>
+          <p id="return-note">Restore the farm, then click the glowing wellbeing returns that appear in the scene.</p>
+        </div>
+        <div class="metric" data-metric="biodiversity">
+          <div class="metric-top">
+            <span>Biodiversity</span>
+            <strong id="biodiversity-value">0%</strong>
+          </div>
+          <div class="meter"><span id="biodiversity-bar"></span></div>
+        </div>
+        <div class="metric" data-metric="climate">
+          <div class="metric-top">
+            <span>Climate resilience</span>
+            <strong id="climate-value">0%</strong>
+          </div>
+          <div class="meter"><span id="climate-bar"></span></div>
+        </div>
+        <div class="metric" data-metric="wellbeing">
+          <div class="metric-top">
+            <span>Community wellbeing</span>
+            <strong id="wellbeing-value">0%</strong>
+          </div>
+          <div class="meter"><span id="wellbeing-bar"></span></div>
+        </div>
+
+        <div class="result" id="result">
+          <p class="result-eyebrow">Your impact</p>
+          <h2 id="result-title">A quiet field is waiting.</h2>
+          <p id="result-copy">
+            Each layer you add shows how regenerative farming can give back to nature and people.
+          </p>
+        </div>
+
+        <div class="cta-row">
+          <a class="donate" href="https://www.crowdfunder.co.uk/p/apron-community-farm" target="_blank" rel="noreferrer">
+            Help make it real
+          </a>
+          <button class="secondary" id="reset" type="button">Reset</button>
+        </div>
+      </aside>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
