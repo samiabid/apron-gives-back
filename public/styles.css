@@ -39,7 +39,7 @@
     /* ── SHELL ─────────────────────────────────────────────── */
     .app-shell {
       width: min(1380px, calc(100vw - 40px));
-      height: calc(100vh - 40px);
+      min-height: calc(100vh - 40px);
       margin: 20px auto;
       display: grid;
       grid-template-columns: minmax(0, 1fr) 390px;
@@ -84,11 +84,9 @@
       position: relative;
       z-index: 1;
       min-width: 0;
-      min-height: 0;
       display: flex;
       flex-direction: column;
       padding: 4px 0 0 4px;
-      overflow: hidden;
     }
 
     .kicker, .result-eyebrow, .scene-label {
@@ -127,9 +125,6 @@
       gap: 8px;
       margin-top: 16px;
       counter-reset: card-n;
-      flex: 1;
-      min-height: 0;
-      overflow-y: auto;
     }
 
     /* ── ACTION CARDS ───────────────────────────────────────── */
@@ -711,10 +706,8 @@
     /* ── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 1120px) {
       .app-shell, .stage { grid-template-columns: 1fr; }
-      .app-shell          { width: min(860px, calc(100vw - 24px)); height: auto; min-height: calc(100vh - 24px); }
-      .impact-panel       { order: -1; overflow-y: visible; }
-      .copy               { overflow: visible; }
-      .actions            { overflow-y: visible; }
+      .app-shell          { width: min(860px, calc(100vw - 24px)); }
+      .impact-panel       { order: -1; }
       h1 { max-width: 14ch; font-size: clamp(2.4rem, 7vw, 3.8rem); }
     }
     @media (max-width: 620px) {
