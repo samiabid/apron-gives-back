@@ -715,7 +715,7 @@
       .impact-panel       { order: -1; overflow-y: visible; }
       .copy               { overflow: visible; }
       .actions            { overflow-y: visible; }
-      h1 { max-width: 10ch; font-size: clamp(3rem, 13vw, 5.2rem); }
+      h1 { max-width: 14ch; font-size: clamp(2.4rem, 7vw, 3.8rem); }
     }
     @media (max-width: 620px) {
       .app-shell         { width: 100%; min-height: 100vh; margin: 0; gap: 0; }
@@ -724,8 +724,9 @@
       .stage             { padding: 14px; }
       .stage::before     { display: none; }
       .copy              { padding: 0; }
-      .lede              { font-size: 0.96rem; }
-      .action-card       { grid-template-columns: 40px minmax(0,1fr); min-height: 86px; }
+      h1                 { font-size: clamp(1.9rem, 8vw, 2.6rem); max-width: none; line-height: 1.05; margin-bottom: 12px; }
+      .lede              { font-size: 0.9rem; margin-bottom: 12px; }
+      .action-card       { grid-template-columns: 40px minmax(0,1fr); min-height: 72px; }
       .action-tag        { display: none; }
       .farm-wrap         { grid-template-rows: auto 400px; }
       .farm-card,
